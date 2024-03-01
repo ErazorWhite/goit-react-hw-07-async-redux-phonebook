@@ -3,14 +3,27 @@ import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useSelector } from 'react-redux';
-import { getContacts } from '../redux/contactsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchContacts } from '../redux/operations';
+import { selectContacts, selectError, selectIsLoading } from '../redux/selectors';
 
 const App = () => {
-  const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
+  // Викликаємо операцію
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+  
+  
   return (
     <div style={{ padding: '20px' }}>
+      {isLoading && <p>Loading tasks...</p>}
+      {error && <p>{error}</p>}
       <ToastContainer />
       <h1>Phonebook</h1>
       <ContactForm />
