@@ -7,6 +7,8 @@ export const StyledListItem = styled.li`
   border: 1px solid black;
   border-radius: 5px;
   padding: 10px;
+  min-width: 190px;
+  flex-basis: calc((100% - 20px) / 3);
 `;
 
 export const StyledDeleteButton = styled.button`
@@ -30,7 +32,7 @@ export const StyledContactEntryBox = styled.div`
 `;
 
 export const StyledContactEntry = styled.div`
-font-size: 1.1em;
-display: flex;
-gap: 5px;
-`
+  font-size: 1.1em;
+  display: flex;
+  gap: 5px;
+`;
