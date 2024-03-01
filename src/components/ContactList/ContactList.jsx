@@ -10,12 +10,7 @@ const ContactList = () => {
     <>
       <StyledUnorderedList>
         {contacts.map(({ id, name, phone }) => (
-          <ContactListItem
-            key={id}
-            id={id}
-            name={name}
-            phone={phone}
-          />
+          <ContactListItem key={id} id={id} name={name} phone={phone} />
         ))}
       </StyledUnorderedList>
     </>
