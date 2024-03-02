@@ -15,7 +15,7 @@ import {
 const App = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-  const isLoading = useSelector(selectIsLoading);
+  const loading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
   useEffect(() => {
@@ -24,12 +24,12 @@ const App = () => {
 
   return (
     <div style={{ padding: '20px' }}>
-      {isLoading && <p>Loading tasks...</p>}
       {error && <p>{error}</p>}
       <ToastContainer />
       <h1>Phonebook</h1>
       <ContactForm />
       <h2>Contacts</h2>
+      {loading && <p>Loading contacts...</p>}
       {contacts?.length ? (
         <>
           <Filter />

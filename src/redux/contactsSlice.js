@@ -8,11 +8,11 @@ const initialState = {
 };
 
 const handlePending = state => {
-  state.isLoading = true;
+  state.loading = true;
 };
 
 const handleRejected = (state, action) => {
-  state.isLoading = false;
+  state.loading = false;
   state.error = action.payload;
 };
 
