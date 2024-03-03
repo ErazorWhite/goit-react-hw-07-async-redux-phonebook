@@ -1,7 +1,7 @@
 import debounce from 'lodash.debounce';
 import { StyledSearchByNameInput } from './Filter.styled';
 import { useDispatch } from 'react-redux';
-import { setSearch } from '../../redux/filterSlice';
+import { setSearch } from '../../redux/filter/slice';
 
 const Filter = () => {
   const dispatch = useDispatch();
